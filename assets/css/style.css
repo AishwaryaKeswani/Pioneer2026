@@ -1,29 +1,220 @@
+/* ========================================
+   Custom Theme & General Styles
+   ======================================== */
+
+/* CSS Variables for the new theme */
+:root {
+    --color-primary-dark: #1D1459;
+    --color-secondary-dark: #1A1940;
+    --color-accent-teal: #027368;
+    --color-accent-yellow: #F2E205;
+    --color-light-yellow: #F2DD72;
+    --color-dark-blue: #172026;
+    --color-gold: #D9AD2B;
+    --color-dark-brown: #261D01;
+    --color-navy: #1E2040;
+    --color-bronze: #BF8C2C;
+    --color-gradient-1: #736C4F;
+    --color-gradient-2: #342B56;
+    --color-gradient-3: #605843;
+
+    --text-light: #ffffff;
+    --text-dark: #000000;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 100px 0 0 0; /* Increased padding-top to account for fixed header */
-    background:white;
-  }
-  
-  /* Banner Section */
-  
-  /* Gallery Container */
-  .gallery-container {
+    padding: 100px 0 0 0; /* Ensures content clears the fixed header */
+    background: var(--color-primary-dark); /* Use primary dark as main background */
+    color: var(--text-light); /* Default text color is white */
+    overflow-x: hidden; /* Prevent horizontal scroll due to potential overflows */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Header Specific Styles */
+#site-header {
+    z-index: 1030; /* Ensure header is on top of other content */
+    background-color: var(--color-secondary-dark); /* Darker background for header */
+    border-bottom: 1px solid var(--color-accent-teal); /* Subtle border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+}
+
+#site-header .navbar-brand span {
+    color: var(--color-accent-yellow); /* Brand text color */
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+#site-header .navbar-brand span:hover {
+    color: var(--color-gold); /* Hover effect for brand text */
+}
+
+#site-header .navbar-nav .nav-link {
+    color: var(--text-light); /* Nav links text color */
+    transition: color 0.3s ease-in-out;
+}
+
+#site-header .navbar-nav .nav-link:hover,
+#site-header .navbar-nav .nav-item.active .nav-link {
+    color: var(--color-accent-yellow); /* Nav links hover/active color */
+}
+
+/* Welcome Section - Adjusted for proper flow and theme colors */
+.welcome {
+    margin-top: 20px; /* Space below header */
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--color-navy); /* Theme color for welcome background */
+    color: var(--text-light); /* Ensure text is visible */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px; /* Limit width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome .title-small {
+    color: var(--color-light-yellow); /* Title color */
+}
+
+.welcome .title-banner {
+    color: var(--color-accent-yellow); /* Banner title color */
+}
+
+.welcome .title-banner span {
+    color: var(--color-gold); /* Accent for span in banner title */
+}
+
+.welcome p {
+    color: var(--text-light); /* Paragraph text color */
+}
+
+
+/* General Title Styles */
+.title-small {
+  font-size: 38px;
+  font-weight: bold;
+  color: var(--color-light-yellow);
+}
+
+.title-banner {
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--color-accent-yellow);
+}
+
+.title-banner span {
+  color: var(--color-gold);
+}
+
+.mt-4 { /* Used for general paragraph text below titles */
+  font-size: 26px;
+  color: var(--text-light);
+}
+
+/* Button Styles */
+.btn-style {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--color-accent-teal);
+    border: 1px solid var(--color-accent-teal);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    color: var(--color-dark-blue);
+}
+
+.btn-white {
+    background-color: transparent;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-white:hover {
+    background-color: var(--color-light-yellow);
+    border: 1px solid var(--color-light-yellow);
+    color: var(--color-primary-dark);
+}
+
+/* Dark Mode - Unified approach */
+.dark-mode {
+    background-color: var(--color-dark-blue) !important;
+    color: var(--text-light) !important;
+}
+
+.dark-mode #site-header {
+    background-color: var(--color-secondary-dark) !important;
+    border-bottom-color: var(--color-gold) !important;
+}
+
+.dark-mode .navbar-nav .nav-link {
+    color: var(--text-light) !important;
+}
+
+.dark-mode .navbar-nav .nav-link:hover,
+.dark-mode .navbar-nav .nav-item.active .nav-link {
+    color: var(--color-gold) !important;
+}
+
+.dark-mode a {
+    color: var(--color-light-yellow) !important;
+}
+
+.dark-mode .welcome {
+    background-color: var(--color-navy) !important;
+}
+
+.dark-mode .welcome .title-small,
+.dark-mode .welcome .title-banner,
+.dark-mode .welcome p {
+    color: var(--text-light) !important;
+}
+
+.dark-mode .title-small {
+    color: var(--color-light-yellow) !important;
+}
+.dark-mode .title-banner {
+    color: var(--color-accent-yellow) !important;
+}
+.dark-mode .title-banner span {
+    color: var(--color-gold) !important;
+}
+.dark-mode .mt-4 {
+    color: var(--text-light) !important;
+}
+
+/* Gallery Container */
+.gallery-container {
     position: relative;
     height: 600px;
     width: 80%;
     margin: 80px auto;
     overflow: hidden;
     border-radius: 10px;
-    background: #eaeaea;
+    background: var(--color-secondary-dark); /* Theme background */
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
-  }
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
   
-  /* Gallery Wrapper */
   .gallery-wrapper {
     display: flex;
     width: 100%;
@@ -31,27 +222,24 @@ body {
     transition: transform 0.5s ease-in-out;
   }
   
-  /* Gallery Images */
   .gallery-image {
-    flex: 0 0 100%; /* Each image takes full width */
+    flex: 0 0 100%;
     width: 100%;
     object-fit: cover;
     margin: 0;
-    
-}
-
-  /* Image Hover Effect */
-  .gallery-image:hover {
-    transform: scale(1.05);
+    border-radius: 8px;
   }
   
-  /* Gallery Controls */
+  .gallery-image:hover {
+    transform: scale(1.03);
+  }
+  
   .gallery-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    background: rgba(var(--color-accent-teal), 0.7); /* Themed semi-transparent */
+    color: var(--text-light);
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -69,512 +257,156 @@ body {
     right: 10px;
   }
   
-  /* Hover Effect on Controls */
   .gallery-control:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--color-accent-teal);
   }
   
-  /* Text Content Section */
-  .about-right-faq {
+  /* Infinite Scroll Section */
+  .infinite-scroll-section {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    background-color: var(--color-dark-blue); /* Theme background */
+    padding: 20px 0;
+  }
+  
+  .infinite-scroll-container {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .infinite-scroll-container img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(80%); /* Subtle effect */
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  .infinite-scroll-container img:hover {
+    filter: grayscale(0%);
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Countdown Section */
+  .countdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+  
+  .countdown img {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .countdown > div {
+    background-color: var(--color-navy); /* Theme background */
+    color: var(--text-light);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     text-align: center;
-    margin-top: 30px;
-    padding: 20px;
   }
   
-  
-.title-small {
-  font-size: 38px;
-  font-weight: bold;
-  color: #000000;
-}
-
-.title-banner {
-  font-size: 46px;
-  font-weight: 700;
-  color: #000000;
-}
-
-.title-banner span {
-  color: #007bff;
-}
-
-.mt-4 {
-  font-size: 26px;
-  color: #000000;
-}
-.welcome {
-margin-bottom: 10px;
-text-align: center;
-padding: 20px;
-background: #ffffff;
-border-radius: 10px;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-height: 300px;
-
-/* Centering the div */
-position: absolute; /* Use fixed if you want it to remain in place on scroll */
-top: 10%;
-left: 50%;
-transform: translate(-50%, 9%);
-
-/* Optional: Set width and max-width */
-width: 60%;
-
-
-}
-/* dark mode */
-/* 🌞 Light Mode (Default) */
-/* The following body and .dark-mode rules are redundant and will be removed */
-/*
-body {
-  background-color: #ffffff;
-  color: #000000;
-  transition: all 0.3s ease-in-out;
-}
-
-.dark-mode {
-  background-color: #121212 !important;
-  color: #ffffff !important;
-}
-
-.dark-mode a {
-  color: #ffcc00 !important;
-}
-
-.dark-mode h1, 
-.dark-mode h2, 
-.dark-mode h3, 
-.dark-mode p, 
-.dark-mode span, 
-.dark-mode div {
-  color: #ffffff !important;
-}
-*/
-/* 🌞 Light Mode (Default) - Keep this section as it's more specific */
-body {
-  background: rgb(255, 255, 255);
-   
-  color: #000000; 
-  transition: all 0.3s ease-in-out;
-}
-
-/* 🌙 Dark Mode */
-.dark-mode {
-  background-color: #181818 !important; /* Dark background for body */
-  color: #ffffff !important; /* Light text */
-}
-
-/* Ensure Header & Navbar Change */
-.dark-mode #site-header {
-  background-color: #1a1a1a !important; /* Dark navbar */
-  border-bottom: 1px solid #333; /* Add subtle border */
-}
-
-.dark-mode .navbar-nav .nav-link {
-  color: #ffffff !important; /* Make nav links white */
-}
-
-/* Ensure Banner and Other Sections Change */
-.dark-mode .w3l-banner1,
-.dark-mode .gallery-container .welcome {
-  background-color: #181818 !important; /* Dark section background */
-}
-
-/* Gallery Images (Optional: Dark Overlay) */
-.dark-mode .gallery-image {
-  filter: brightness(0.8); /* Darken images slightly */
-}
-
-/* Ensure Text in Sections is White */
-.dark-mode h1, 
-.dark-mode h2, 
-.dark-mode h3, 
-.dark-mode p, 
-.dark-mode span, 
-.dark-mode div {
-  color: #ffffff !important;
-}
-
-/* Light Mode Links */
-a {
-  color: #000000;
-}
-
-/* Dark Mode Links */
-.dark-mode a {
-  color: #ffcc00 !important; /* Yellow link color for contrast */
-}
-/* Light Mode (Default) */
-.about-right-faq.welcome {
-  background-color: #ffffff; /* Default light mode background */
-  color: #000000; /* Default text color */
-  transition: all 0.3s ease-in-out;
-}
-
-/* Dark Mode */
-.dark-mode .about-right-faq.welcome {
-  background-color: #181818 !important; /* Dark mode background */
-  color: #ffffff !important; /* Ensure text turns white */
-  border: 1px solid #333; /* Optional: Add border for visibility */
-}
-
-/* Ensure Headings & Paragraphs Inside Turn White */
-.dark-mode .about-right-faq.welcome h5,
-.dark-mode .about-right-faq.welcome h3,
-.dark-mode .about-right-faq.welcome p {
-  color: #ffffff !important;
-}
-
-
-  /* wecome massage
-   */
-   
-@media (max-width: 768px) {
-    .welcome {
-        width: 100%; /* Adjust width for tablets */
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome {
-        width: 90%; /* Adjust width for mobile */
-        padding: 10px;
-        font-size: 14px;
-    }
-}
-
-  /* Responsive Design */
-  @media (max-width: 992px) {
-    .gallery-container {
-      max-width: 100%;
-      padding: 5px;
-    }
-  
-    .gallery-control {
-      font-size: 18px;
-      padding: 8px 12px;
-    }
-  
-    .title-banner {
-      font-size: 28px;
-    }
-  
-    .title-small {
-      font-size: 18px;
-    }
+  .countdown .number {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--color-accent-yellow); /* Number color */
   }
   
+  .countdown span {
+    color: var(--color-light-yellow); /* Label color */
+  }
+  
+  /* Block 1 Section */
+  .block_1 {
+    background-color: var(--color-primary-dark); /* Theme background */
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inner_1 {
+    background: var(--color-secondary-dark); /* Theme background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: var(--text-light);
+  }
+  
+  .college-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-gold); /* Theme color */
+  }
+  
+  .inner_1 p {
+    color: var(--text-light);
+  }
+
+  /* Footer */
+  .w3l-footer-29-main {
+      background-color: var(--color-secondary-dark); /* Theme background */
+      color: var(--text-light);
+  }
+  
+  .w3l-footer-29-main a {
+      color: var(--color-light-yellow);
+  }
+  
+  .w3l-footer-29-main a:hover {
+      color: var(--color-gold);
+  }
+  
+  .w3l-footer-29-main .footer-title-29 {
+      color: var(--color-accent-yellow);
+  }
+  
+  .w3l-footer-29-main .main-social-footer-29 a {
+      color: var(--text-light);
+      border-color: var(--color-accent-teal);
+  }
+  
+  .w3l-footer-29-main .main-social-footer-29 a:hover {
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+  }
+  
+  .w3l-footer-29-main .copy-footer-29 {
+      color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Responsive Design - Adjusting colors for mobile if needed, but mostly inherits */
   @media (max-width: 768px) {
-    .gallery-container {
-      max-width: 100%;
-    }
-  
-    .gallery-image {
-      border-radius: 5px;
-    }
-  
-    .gallery-control {
-      font-size: 16px;
-      padding: 6px 10px;
-    }
-  
-    .title-banner {
-      font-size: 24px;
-    }
-  
-    .title-small {
-      font-size: 16px;
+    .welcome {
+        padding: 20px;
     }
   }
   
   @media (max-width: 480px) {
-    .gallery-container {
-      max-width: 100%;
-    }
-  
-    .gallery-image {
-      border-radius: 3px;
-    }
-  
-    .gallery-control {
-      font-size: 14px;
-      padding: 5px 8px;
-    }
-  
-    .title-banner {
-      font-size: 20px;
-    }
-  
-    .title-small {
-      font-size: 14px;
+    .welcome {
+        padding: 15px;
     }
   }
-  
-  /* poster */
-  .infinite-scroll-section {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  width: 100%;
-}
-
-.infinite-scroll-container {
-  display: flex;
-  gap: 20px; /* Adjust spacing between images */
-  width: max-content; /* Ensure the container fits all images */
-  animation: scroll 30s linear infinite; /* Set animation */
-}
-
-.infinite-scroll-container img {
-  height: 80px; /* Adjust size as needed */
-  width: auto;
-  object-fit: contain;
-}
-
-/* Keyframes for infinite scrolling */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-
-.countdown {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px; /* Adjust spacing */
-  flex-wrap: wrap;
-}
-
-.countdown img {
-  width: 80px; /* Adjust size as needed */
-  height: auto;
-  position: absolute;
-  top: -60px; /* Adjust to position it above the countdown */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (max-width: 768px) {
-  .countdown img {
-      width: 60px; /* Smaller image for mobile */
-      top: -50px;
-  }
-}
-/* Default styles for larger screens (Laptop & Desktop) */
-.gallery-container {
-    width: 100%;
-    max-width: 1200px; /* Limits max width */
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Space between images */
-}
-
-.gallery-image {
-    width: calc(25% - 10px); /* 4 images per row on desktop */
-    height: auto;
-    max-height: 250px; /* Prevents oversized images */
-    object-fit: cover; /* Ensures images look good */
-    border-radius: 10px;
-}
-
-/* Controls */
-.gallery-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    font-size: 20px;
-}
-
-/* ✅ Tablet View (2 Images Per Row) */
-@media screen and (max-width: 1024px) {
-    .gallery-image {
-        width: calc(50% - 10px); /* 2 images per row */
-        max-height: 220px;
-    }
-}
-
-/* ✅ Mobile View (1 Image Per Row, Full Width) */
-@media screen and (max-width: 768px) {
-    .gallery-wrapper {
-        flex-direction: column; /* Stack images vertically */
-        align-items: center;
-    }
-    .gallery-image {
-        width: 100%; /* Full width */
-        max-height: 300px;
-    }
-}
-
-/* ✅ Small Mobile View (Full Width, Maintain Clarity) */
-@media screen and (max-width: 480px) {
-    .gallery-image {
-        width: 100%;
-        max-height: 250px; /* Maintain clarity */
-        object-fit: contain; /* Prevents cropping */
-    }
-}
-@media screen and (max-width: 768px) {
-    .box {
-        padding: 20px; /* Reduce padding */
-        flex-direction: column; /* Stack elements */
-    }
-
-    .about-right-faq {
-        width: 100%;
-        padding: 15px; /* Adjust padding */
-    }
-
-    .title-small {
-        font-size: 16px; /* Adjust heading size */
-    }
-
-    .title-banner {
-        font-size: 20px; /* Adjust title size */
-    }
-
-    .title-banner span {
-        font-size: 22px;
-        color: #007bff; /* Highlight span */
-    }
-
-    .about-right-faq p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
-
-/* Extra Small Devices (Phones) */
-@media screen and (max-width: 480px) {
-    .title-small {
-        font-size: 14px;
-    }
-
-    .title-banner {
-        font-size: 18px;
-    }
-
-    .title-banner span {
-        font-size: 20px;
-    }
-
-    .about-right-faq p {
-        font-size: 13px;
-    }
-}
-/* General Styling */
-.block_1 {
-  background-color: #f8f9fa; /* Light background */
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container_1 {
-  max-width: 1200px;
-  width: 100%;
-}
-
-.row_1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.inner_1 {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.college-name {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.inner_1 p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-  text-align: justify;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .inner_1 {
-    padding: 25px;
-  }
-
-  .college-name {
-    font-size: 22px;
-  }
-
-  .inner_1 p {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .block_1 {
-    padding: 40px 15px;
-  }
-
-  .inner_1 {
-    padding: 20px;
-  }
-
-  .college-name {
-    font-size: 20px;
-  }
-
-  .inner_1 p {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .block_1 {
-    padding: 30px 10px;
-  }
-
-  .inner_1 {
-    padding: 15px;
-  }
-
-  .college-name {
-    font-size: 18px;
-  }
-
-  .inner_1 p {
-    font-size: 13px;
-  }
-}
