@@ -1,0 +1,17 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "name": "Gemini",
+      "login": "gemini",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ]
+}
