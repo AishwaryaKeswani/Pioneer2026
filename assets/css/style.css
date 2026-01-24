@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 70px 0 0 0; /* Added padding-top to account for fixed header */
+    padding: 100px 0 0 0; /* Increased padding-top to account for fixed header */
     background:white;
   }
   
