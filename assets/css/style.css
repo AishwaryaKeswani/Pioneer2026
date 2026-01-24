@@ -27,7 +27,7 @@ body {
     margin: 0;
     padding: 100px 0 0 0; /* Ensures content clears the fixed header */
     background: var(--color-primary-dark); /* Use primary dark as main background */
-    color: var(--text-light); /* Default text color is white */
+    color: var(--text-light) !important; /* Default text color is white, forced */
     overflow-x: hidden; /* Prevent horizontal scroll due to potential overflows */
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -95,7 +95,6 @@ body {
 .welcome p {
     color: var(--text-light); /* Paragraph text color */
 }
-
 
 /* General Title Styles */
 .title-small {
