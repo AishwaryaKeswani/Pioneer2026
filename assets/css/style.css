@@ -22,6 +22,17 @@
     --text-dark: #000000;
 }
 
+/* Universal Aggressive Debugging Styles */
+* {
+    /* outline: 1px solid rgba(255, 0, 0, 0.5) !important; /* Visual debug for all elements */ */
+    /* background-color: rgba(0, 255, 0, 0.05) !important; /* Subtle background to see element boxes */ */
+    color: var(--text-light) !important; /* Force all text to be visible */
+}
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -78,6 +89,7 @@ body {
     max-width: 800px; /* Limit width for better readability */
     margin-left: auto;
     margin-right: auto;
+    z-index: 10; /* Ensure welcome content is above basic background layers */
 }
 
 .welcome .title-small {
@@ -198,6 +210,28 @@ body {
     color: var(--text-light) !important;
 }
 
+/* Styles for homeImage and Tech-negotia.svg */
+.homeImage img, img[src="Tech-negotia.svg"] {
+    height: 400px;
+    width: 100%;
+}
+
+/* Styles for the middle CTA section */
+.middle {
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.9), rgba(2, 115, 104, 0.8));
+    border-radius: 10px;
+}
+
+/* Style for the clock gif */
+.w3l-homeblock1 .container img {
+    width: 80px;
+}
+
+/* Style for the last h3 in countdown section */
+.w3l-homeblock1 h3:last-of-type {
+    margin-top: 20px;
+}
+
 /* Gallery Container */
 .gallery-container {
     position: relative;
@@ -212,6 +246,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 10;
 }
   
   .gallery-wrapper {
@@ -268,6 +303,7 @@ body {
     width: 100%;
     background-color: var(--color-dark-blue); /* Theme background */
     padding: 20px 0;
+    z-index: 10;
   }
   
   .infinite-scroll-container {
@@ -307,6 +343,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     margin: 40px 0;
+    z-index: 10;
   }
   
   .countdown img {
@@ -344,6 +381,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
   }
   
   .inner_1 {
@@ -369,6 +407,7 @@ body {
   .w3l-footer-29-main {
       background-color: var(--color-secondary-dark); /* Theme background */
       color: var(--text-light);
+      z-index: 10;
   }
   
   .w3l-footer-29-main a {
