@@ -1,0 +1,269 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>PIONEER </title>
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="//fonts.googleapis.com/css?family=Cabin:400,500,600&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style-about.css">
+    <link rel="stylesheet" href="assets/css/style-sponcer.css">
+
+    </head>
+    <body>
+    
+    <div class="bg-animation"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 80%; top: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 50%; top: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 20%; top: 70%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 90%; top: 60%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 40%; top: 80%; animation-delay: 10s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="brand">
+                <div class="brand-logo"><img src="images/sponsors/logo.png" alt="Pioneer Logo"></div>
+                <span class="brand-text">PIONEER</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="sponsors.html" class="active">Our Sponsors</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Proud Sponsors</h1>
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span style="color: #F2DD72;">/</span>
+            <span style="color: #F2DD72;">Our Sponsors</span>
+        </div>
+    </section>
+
+    <!-- Main Sponsors Section -->
+    <div class="sponsors-container">
+        <h2 class="section-title">Fueling Entrepreneurship through innovation </h2>
+
+        <!-- Featured Sponsors -->
+       
+<div class="sponsor-card">
+    <h3>Featured Sponsors</h3>
+
+    <div class="featured-grid">
+        <div class="sponsor-item-featured">
+            <img src="images/sponsors/23.jpg" alt="Sponsor 1">
+        </div>
+
+        <div class="sponsor-item-featured">
+            <img src="images/sponsors/22.jpg" alt="Sponsor 2">
+        </div>
+
+        <div class="sponsor-item-featured">
+            <img src="images/sponsors/21.jpg" alt="Sponsor 3">
+        </div>
+
+        <div class="sponsor-item-featured">
+            <img src="images/sponsors/25.jpg" alt="Sponsor 4">
+        </div>
+    </div>
+</div>
+
+
+        <!-- Other Sponsors -->
+<div class="sponsor-card">
+    <h3>Our Partners</h3>
+    <div class="other-grid" id="otherSponsors">
+        <!-- Sponsor logos will be injected by JavaScript -->
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h6>Useful Links</h6>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h6>Follow Us</h6>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 PIONEER. All rights reserved | Designed by ISTE Student Chapter, KITCOEK.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fa fa-angle-up"></i>
+    </button>
+
+    <script>
+   
+    const otherSponsorsContainer = document.getElementById("otherSponsors");
+    const featuredSponsors = [21, 22, 23, 25]; // Skip featured sponsors
+
+    function createSponsorImage(src, altText) {
+        const sponsorItem = document.createElement("div");
+
+        // Styling via JS
+        sponsorItem.style.width = "100px";
+        sponsorItem.style.height = "100px";
+        sponsorItem.style.display = "flex";
+        sponsorItem.style.alignItems = "center";
+        sponsorItem.style.justifyContent = "center";
+        sponsorItem.style.margin = "15px";
+        sponsorItem.style.background = "#fff";
+        sponsorItem.style.borderRadius = "12px";
+        sponsorItem.style.boxShadow = "0 4px 10px rgba(0,0,0,0.1)";
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = altText;
+
+        // Image size increased
+        img.style.width = "90%";
+        img.style.height = "90%";
+        img.style.objectFit = "contain";
+
+        sponsorItem.appendChild(img);
+        otherSponsorsContainer.appendChild(sponsorItem);
+    }
+
+    // Folder 1 images
+    for (let i = 1; i <= 40; i++) {
+        if (!featuredSponsors.includes(i)) {
+            createSponsorImage(`images/sponsors/${i}.jpg`, `Sponsor ${i}`);
+        }
+    }
+
+    // Folder 2 images
+    for (let i = 1; i <= 17; i++) {
+        if (!featuredSponsors.includes(i)) {
+            createSponsorImage(`images/image2/${i}.jpg`, `Sponsor ${i}`);
+        }
+    }
+
+
+
+    /* =========================
+       Mobile Menu Toggle
+    ========================== */
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    }
+
+    /* =========================
+       Scroll to Top Button
+    ========================== */
+    const scrollBtn = document.querySelector(".scroll-top");
+
+    window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add("visible");
+        } else {
+            scrollBtn.classList.remove("visible");
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* =========================
+       3D Card Tilt Effect
+    ========================== */
+    document.querySelectorAll(".sponsor-item-featured").forEach(item => {
+        item.addEventListener("mousemove", e => {
+            const rect = item.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const rotateX = (y - rect.height / 2) / 10;
+            const rotateY = (rect.width / 2 - x) / 10;
+
+            item.style.transform =
+                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-20px)`;
+        });
+
+        item.addEventListener("mouseleave", () => {
+            item.style.transform =
+                "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+        });
+    });
+
+    /* =========================
+       Parallax Particle Effect
+    ========================== */
+    window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll(".particle").forEach((particle, index) => {
+            particle.style.transform =
+                `translateY(${scrolled * (index + 1) * 0.1}px)`;
+        });
+    });
+
+    /* =========================
+       Intersection Observer
+    ========================== */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation =
+                    "fadeInScale 0.6s ease-out forwards";
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    document.querySelectorAll(".sponsor-item, .sponsor-item-featured")
+        .forEach(item => observer.observe(item));
+</script>
+
+    
+</body>
+</html>
+    

@@ -1,450 +1,659 @@
 /* ========================================
-   Custom Theme & General Styles
+   FIXED style.css - NO OVERLAPS, CLEAR TEXT
+   Replace your entire style.css with this
    ======================================== */
 
-/* CSS Variables for the new theme */
+
+/* CSS Variables */
+
 :root {
-    --color-primary-dark: #1D1459;
-    --color-secondary-dark: #1A1940;
-    --color-accent-teal: #027368;
-    --color-accent-yellow: #F2E205;
-    --color-light-yellow: #F2DD72;
-    --color-dark-blue: #172026;
-    --color-gold: #D9AD2B;
-    --color-dark-brown: #261D01;
-    --color-navy: #1E2040;
-    --color-bronze: #BF8C2C;
-    --color-gradient-1: #736C4F;
-    --color-gradient-2: #342B56;
-    --color-gradient-3: #605843;
-
-    --text-light: #ffffff;
-    --text-dark: #000000;
+    --primary-dark: #1D1459;
+    --secondary-dark: #1A1940;
+    --accent-teal: #027368;
+    --accent-yellow: #F2E205;
+    --light-yellow: #F2DD72;
+    --darker-blue: #172026;
+    --gold: #D9AD2B;
+    --dark-brown: #261D01;
+    --navy: #1E2040;
+    --bronze: #BF8C2C;
+    --gradient-1: #736C4F;
+    --gradient-2: #342B56;
+    --gradient-3: #605843;
 }
 
-/* Universal Aggressive Debugging Styles */
 * {
-    /* outline: 1px solid rgba(255, 0, 0, 0.5) !important; /* Visual debug for all elements */ */
-    /* background-color: rgba(0, 255, 0, 0.05) !important; /* Subtle background to see element boxes */ */
-    color: var(--text-light) !important; /* Force all text to be visible */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-}
+
+
+/* Body Styling */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 100px 0 0 0; /* Ensures content clears the fixed header */
-    background: var(--color-primary-dark); /* Use primary dark as main background */
-    color: var(--text-light) !important; /* Default text color is white, forced */
-    overflow-x: hidden; /* Prevent horizontal scroll due to potential overflows */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    padding: 0;
+    background: linear-gradient(135deg, var(--gradient-2) 0%, var(--primary-dark) 50%, var(--gradient-1) 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
 }
 
-/* Header Specific Styles */
+
+/* Animated Background */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(2, 115, 104, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(242, 226, 5, 0.08) 0%, transparent 50%);
+    animation: backgroundShift 15s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes backgroundShift {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+
+/* Ensure all content is above background */
+
+header,
+main,
+section,
+div,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========================================
+   HEADER STYLES
+   ======================================== */
+
 #site-header {
-    z-index: 1030; /* Ensure header is on top of other content */
-    background-color: var(--color-secondary-dark); /* Darker background for header */
-    border-bottom: 1px solid var(--color-accent-teal); /* Subtle border */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.95), rgba(26, 25, 64, 0.95));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 10px 0;
 }
 
-#site-header .navbar-brand span {
-    color: var(--color-accent-yellow); /* Brand text color */
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
+#site-header.nav-fixed {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.98), rgba(2, 115, 104, 0.95));
 }
 
-#site-header .navbar-brand span:hover {
-    color: var(--color-gold); /* Hover effect for brand text */
+.navbar-brand {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-yellow), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-#site-header .navbar-nav .nav-link {
-    color: var(--text-light); /* Nav links text color */
-    transition: color 0.3s ease-in-out;
+.navbar-brand:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(242, 226, 5, 0.5));
 }
 
-#site-header .navbar-nav .nav-link:hover,
-#site-header .navbar-nav .nav-item.active .nav-link {
-    color: var(--color-accent-yellow); /* Nav links hover/active color */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    position: relative;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
 }
 
-/* Welcome Section - Adjusted for proper flow and theme colors */
-.welcome {
-    margin-top: 20px; /* Space below header */
-    margin-bottom: 10px;
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--color-navy); /* Theme color for welcome background */
-    color: var(--text-light); /* Ensure text is visible */
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-yellow), var(--gold));
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 70%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-yellow) !important;
+}
+
+
+/* ========================================
+   MAIN CONTENT SPACING
+   ======================================== */
+
+body {
+    padding-top: 80px;
+}
+
+
+/* ========================================
+   BOX CONTAINER
+   ======================================== */
+
+.box {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 800px; /* Limit width for better readability */
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 10; /* Ensure welcome content is above basic background layers */
-}
-
-.welcome .title-small {
-    color: var(--color-light-yellow); /* Title color */
-}
-
-.welcome .title-banner {
-    color: var(--color-accent-yellow); /* Banner title color */
-}
-
-.welcome .title-banner span {
-    color: var(--color-gold); /* Accent for span in banner title */
-}
-
-.welcome p {
-    color: var(--text-light); /* Paragraph text color */
-}
-
-/* General Title Styles */
-.title-small {
-  font-size: 38px;
-  font-weight: bold;
-  color: var(--color-light-yellow);
-}
-
-.title-banner {
-  font-size: 46px;
-  font-weight: 700;
-  color: var(--color-accent-yellow);
-}
-
-.title-banner span {
-  color: var(--color-gold);
-}
-
-.mt-4 { /* Used for general paragraph text below titles */
-  font-size: 26px;
-  color: var(--text-light);
-}
-
-/* Button Styles */
-.btn-style {
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-primary {
-    background-color: var(--color-accent-teal);
-    border: 1px solid var(--color-accent-teal);
-    color: var(--text-light);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-gold);
-    border: 1px solid var(--color-gold);
-    color: var(--color-dark-blue);
-}
-
-.btn-white {
-    background-color: transparent;
-    border: 1px solid var(--text-light);
-    color: var(--text-light);
-}
-
-.btn-white:hover {
-    background-color: var(--color-light-yellow);
-    border: 1px solid var(--color-light-yellow);
-    color: var(--color-primary-dark);
-}
-
-/* Dark Mode - Unified approach */
-.dark-mode {
-    background-color: var(--color-dark-blue) !important;
-    color: var(--text-light) !important;
-}
-
-.dark-mode #site-header {
-    background-color: var(--color-secondary-dark) !important;
-    border-bottom-color: var(--color-gold) !important;
-}
-
-.dark-mode .navbar-nav .nav-link {
-    color: var(--text-light) !important;
-}
-
-.dark-mode .navbar-nav .nav-link:hover,
-.dark-mode .navbar-nav .nav-item.active .nav-link {
-    color: var(--color-gold) !important;
-}
-
-.dark-mode a {
-    color: var(--color-light-yellow) !important;
-}
-
-.dark-mode .welcome {
-    background-color: var(--color-navy) !important;
-}
-
-.dark-mode .welcome .title-small,
-.dark-mode .welcome .title-banner,
-.dark-mode .welcome p {
-    color: var(--text-light) !important;
-}
-
-.dark-mode .title-small {
-    color: var(--color-light-yellow) !important;
-}
-.dark-mode .title-banner {
-    color: var(--color-accent-yellow) !important;
-}
-.dark-mode .title-banner span {
-    color: var(--color-gold) !important;
-}
-.dark-mode .mt-4 {
-    color: var(--text-light) !important;
-}
-
-/* Styles for homeImage and Tech-negotia.svg */
-.homeImage img, img[src="Tech-negotia.svg"] {
-    height: 400px;
-    width: 100%;
-}
-
-/* Styles for the middle CTA section */
-.middle {
-    background: linear-gradient(135deg, rgba(29, 20, 89, 0.9), rgba(2, 115, 104, 0.8));
-    border-radius: 10px;
-}
-
-/* Style for the clock gif */
-.w3l-homeblock1 .container img {
-    width: 80px;
-}
-
-/* Style for the last h3 in countdown section */
-.w3l-homeblock1 h3:last-of-type {
+    align-items: center;
+    padding: 40px 20px;
     margin-top: 20px;
 }
 
-/* Gallery Container */
-.gallery-container {
+
+/* ========================================
+   WELCOME SECTION - FIXED
+   ======================================== */
+
+.welcome {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.9), rgba(52, 43, 86, 0.85));
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(242, 226, 5, 0.15);
+    border: 1px solid rgba(242, 226, 5, 0.3);
     position: relative;
-    height: 600px;
-    width: 80%;
-    margin: 80px auto;
-    overflow: hidden;
-    border-radius: 10px;
-    background: var(--color-secondary-dark); /* Theme background */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    overflow: visible;
+    transition: all 0.4s ease;
     z-index: 10;
 }
-  
-  .gallery-wrapper {
+
+.welcome::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-teal), var(--accent-yellow), var(--gold), var(--accent-teal));
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.welcome:hover::before {
+    opacity: 0.3;
+}
+
+.welcome:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(242, 226, 5, 0.25);
+}
+
+
+/* ========================================
+   TEXT STYLES - FULLY VISIBLE
+   ======================================== */
+
+.title-small {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--light-yellow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+}
+
+.title-banner {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 20px 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+    line-height: 1.3;
+}
+
+.title-banner span {
+    background: linear-gradient(135deg, var(--accent-yellow), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    text-shadow: none;
+    filter: drop-shadow(0 2px 8px rgba(242, 226, 5, 0.5));
+}
+
+.mt-4 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 20px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   HOME IMAGE
+   ======================================== */
+
+.homeImage {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    margin: 30px 0;
+}
+
+.homeImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   COUNTDOWN SECTION
+   ======================================== */
+
+.w3l-homeblock1 {
+    padding: 60px 20px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.title-big {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.countdown>div {
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.9), rgba(2, 115, 104, 0.8));
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(242, 226, 5, 0.1);
+    border: 2px solid rgba(242, 226, 5, 0.3);
+    min-width: 110px;
+    transition: all 0.3s ease;
+}
+
+.countdown>div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(242, 226, 5, 0.3), 0 0 30px rgba(242, 226, 5, 0.2);
+    border-color: var(--gold);
+}
+
+.countdown .number {
+    font-size: 42px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-yellow), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.countdown span {
+    font-size: 14px;
+    color: var(--light-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ========================================
+   GALLERY CONTAINER - FIXED
+   ======================================== */
+
+.gallery-container {
+    position: relative;
+    width: 85%;
+    max-width: 1100px;
+    height: 550px;
+    margin: 60px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(26, 25, 64, 0.8), rgba(29, 20, 89, 0.8));
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(242, 226, 5, 0.1);
+    border: 1px solid rgba(217, 173, 43, 0.3);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 10;
+}
+
+.gallery-container:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(242, 226, 5, 0.2);
+}
+
+.gallery-wrapper {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .gallery-image {
+    transition: transform 0.6s ease;
+}
+
+.gallery-image {
     flex: 0 0 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin: 0;
-    border-radius: 8px;
-  }
-  
-  .gallery-image:hover {
-    transform: scale(1.03);
-  }
-  
-  .gallery-control {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02);
+}
+
+.gallery-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(var(--color-accent-teal), 0.7); /* Themed semi-transparent */
-    color: var(--text-light);
-    border: none;
-    padding: 10px 15px;
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.95), rgba(2, 115, 104, 0.95));
+    color: #fff;
+    border: 2px solid var(--accent-yellow);
+    padding: 12px 18px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 22px;
     border-radius: 50%;
-    z-index: 10;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .gallery-control.prev {
-    left: 10px;
-  }
-  
-  .gallery-control.next {
-    right: 10px;
-  }
-  
-  .gallery-control:hover {
-    background: var(--color-accent-teal);
-  }
-  
-  /* Infinite Scroll Section */
-  .infinite-scroll-section {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-    background-color: var(--color-dark-blue); /* Theme background */
-    padding: 20px 0;
-    z-index: 10;
-  }
-  
-  .infinite-scroll-container {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 30s linear infinite;
-  }
-  
-  .infinite-scroll-container img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(80%); /* Subtle effect */
-    transition: filter 0.3s ease-in-out;
-  }
-  
-  .infinite-scroll-container img:hover {
-    filter: grayscale(0%);
-  }
-  
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-  
-  /* Countdown Section */
-  .countdown {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 40px 0;
-    z-index: 10;
-  }
-  
-  .countdown img {
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .countdown > div {
-    background-color: var(--color-navy); /* Theme background */
-    color: var(--text-light);
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-  }
-  
-  .countdown .number {
-    font-size: 48px;
-    font-weight: bold;
-    color: var(--color-accent-yellow); /* Number color */
-  }
-  
-  .countdown span {
-    color: var(--color-light-yellow); /* Label color */
-  }
-  
-  /* Block 1 Section */
-  .block_1 {
-    background-color: var(--color-primary-dark); /* Theme background */
-    padding: 50px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
-  
-  .inner_1 {
-    background: var(--color-secondary-dark); /* Theme background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: var(--text-light);
-  }
-  
-  .college-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--color-gold); /* Theme color */
-  }
-  
-  .inner_1 p {
-    color: var(--text-light);
-  }
+    z-index: 20;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
 
-  /* Footer */
-  .w3l-footer-29-main {
-      background-color: var(--color-secondary-dark); /* Theme background */
-      color: var(--text-light);
-      z-index: 10;
-  }
-  
-  .w3l-footer-29-main a {
-      color: var(--color-light-yellow);
-  }
-  
-  .w3l-footer-29-main a:hover {
-      color: var(--color-gold);
-  }
-  
-  .w3l-footer-29-main .footer-title-29 {
-      color: var(--color-accent-yellow);
-  }
-  
-  .w3l-footer-29-main .main-social-footer-29 a {
-      color: var(--text-light);
-      border-color: var(--color-accent-teal);
-  }
-  
-  .w3l-footer-29-main .main-social-footer-29 a:hover {
-      color: var(--color-gold);
-      border-color: var(--color-gold);
-  }
-  
-  .w3l-footer-29-main .copy-footer-29 {
-      color: rgba(255, 255, 255, 0.7);
-  }
-  
-  /* Responsive Design - Adjusting colors for mobile if needed, but mostly inherits */
-  @media (max-width: 768px) {
+.gallery-control.prev {
+    left: 15px;
+}
+
+.gallery-control.next {
+    right: 15px;
+}
+
+.gallery-control:hover {
+    background: linear-gradient(135deg, var(--accent-teal), var(--primary-dark));
+    transform: translateY(-50%) scale(1.15);
+    border-color: var(--gold);
+    box-shadow: 0 8px 20px rgba(242, 226, 5, 0.4);
+}
+
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-style {
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-teal), var(--primary-dark));
+    color: #fff !important;
+    box-shadow: 0 8px 20px rgba(2, 115, 104, 0.4);
+    border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-teal));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(2, 115, 104, 0.5);
+    border-color: var(--accent-yellow);
+}
+
+.btn-white {
+    background: #ffffff;
+    color: var(--primary-dark) !important;
+    border: 2px solid var(--accent-yellow);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white:hover {
+    background: linear-gradient(135deg, var(--accent-yellow), var(--gold));
+    color: #fff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(242, 226, 5, 0.4);
+}
+
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+.w3l-homeblock2,
+.w3l-homeblock3,
+.w3l-homeblock5 {
+    padding: 60px 20px;
+    margin: 40px 0;
+}
+
+.area-box {
+    background: linear-gradient(135deg, rgba(29, 20, 89, 0.8), rgba(26, 25, 64, 0.8));
+    padding: 35px 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(217, 173, 43, 0.2);
+    margin-bottom: 25px;
+    height: 100%;
+}
+
+.area-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(242, 226, 5, 0.3);
+    background: linear-gradient(135deg, rgba(2, 115, 104, 0.8), rgba(29, 20, 89, 0.8));
+    border-color: var(--gold);
+}
+
+.area-box .fa {
+    font-size: 42px;
+    color: var(--accent-yellow);
+    margin-bottom: 18px;
+    filter: drop-shadow(0 3px 6px rgba(242, 226, 5, 0.4));
+}
+
+.area-box h4 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 15px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.area-box p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
+   INFINITE SCROLL
+   ======================================== */
+
+.infinite-scroll-section {
+    overflow: hidden;
+    padding: 40px 0;
+    margin: 40px 0;
+}
+
+.infinite-scroll-container {
+    display: flex;
+    gap: 25px;
+    animation: scroll 40s linear infinite;
+}
+
+.infinite-scroll-container img {
+    height: 70px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.infinite-scroll-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(242, 226, 5, 0.3);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+
+.dark-mode {
+    background: linear-gradient(135deg, #0a0a0a 0%, var(--primary-dark) 50%, #1a1a1a 100%);
+}
+
+.dark-mode #site-header {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(29, 20, 89, 0.98));
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 991px) {
+    .title-banner {
+        font-size: 32px;
+    }
+    .title-small {
+        font-size: 18px;
+    }
+    .gallery-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
     .welcome {
+        width: 95%;
+        padding: 35px 25px;
+    }
+    .title-banner {
+        font-size: 26px;
+    }
+    .title-small {
+        font-size: 16px;
+    }
+    .mt-4 {
+        font-size: 16px;
+    }
+    .gallery-container {
+        width: 95%;
+        height: 380px;
         padding: 20px;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .welcome {
-        padding: 15px;
+    .countdown {
+        gap: 15px;
     }
-  }
+    .countdown>div {
+        padding: 20px 25px;
+        min-width: 90px;
+    }
+    .countdown .number {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-banner {
+        font-size: 22px;
+    }
+    .title-small {
+        font-size: 14px;
+    }
+    .mt-4 {
+        font-size: 14px;
+    }
+    .gallery-container {
+        height: 320px;
+    }
+    .countdown .number {
+        font-size: 28px;
+    }
+}
