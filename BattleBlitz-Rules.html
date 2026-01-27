@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Blitz - Rules & Regulations</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Department CSS -->
+    <link rel="stylesheet" href="dept.css">
+    
+    <style>
+        .rules-hero {
+            background: linear-gradient(135deg, #2c3e7a 0%, #1a1f3a 50%, #0f1629 100%);
+            padding: 180px 0 120px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rules-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(245, 175, 25, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(241, 39, 17, 0.15) 0%, transparent 50%);
+        }
+        
+        .rules-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+        
+        .rules-hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .rules-hero-content p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .rules-container {
+            padding: 80px 0;
+            background: #1a1f3a;
+        }
+        
+        .rules-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            border-left: 6px solid #f5af19;
+            transition: all 0.4s;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .rules-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 70px rgba(245, 175, 25, 0.4);
+        }
+        
+        .rules-card h2 {
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .rules-card h2 i {
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: bounce 2s ease-in-out infinite;
+            font-size: 3rem;
+        }
+        
+        .rule-item {
+            padding: 25px 30px 25px 70px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #f5af19;
+            position: relative;
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s;
+            animation: fadeInLeft 0.6s ease;
+            animation-fill-mode: both;
+        }
+        
+        .rule-item:hover {
+            background: white;
+            transform: translateX(15px);
+            box-shadow: 0 8px 25px rgba(245, 175, 25, 0.3);
+        }
+        
+        .rule-item::before {
+            content: attr(data-number);
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .rule-item:nth-child(1) { animation-delay: 0.05s; }
+        .rule-item:nth-child(2) { animation-delay: 0.1s; }
+        .rule-item:nth-child(3) { animation-delay: 0.15s; }
+        .rule-item:nth-child(4) { animation-delay: 0.2s; }
+        .rule-item:nth-child(5) { animation-delay: 0.25s; }
+        .rule-item:nth-child(6) { animation-delay: 0.3s; }
+        .rule-item:nth-child(7) { animation-delay: 0.35s; }
+        .rule-item:nth-child(8) { animation-delay: 0.4s; }
+        
+        .important-note {
+            background: linear-gradient(135deg, rgba(245, 175, 25, 0.1) 0%, rgba(241, 39, 17, 0.1) 100%);
+            border: 3px solid rgba(245, 175, 25, 0.4);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .important-note h3 {
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .important-note p {
+            font-size: 1.4rem;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(245, 175, 25, 0.4);
+            transition: all 0.4s;
+            margin-top: 30px;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(245, 175, 25, 0.6);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .rules-hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .rules-hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .rules-card {
+                padding: 30px 20px;
+            }
+            
+            .rules-card h2 {
+                font-size: 2rem;
+            }
+            
+            .rule-item {
+                font-size: 1.15rem;
+                padding: 20px 20px 20px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Same as main page) -->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="index.html">
+                    <span>E-GENESIS</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">Events</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="BattleBlitz.html">Battle Blitz</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Rules Hero Section -->
+    <section class="rules-hero">
+        <div class="container">
+            <div class="rules-hero-content">
+                <h1><i class="fas fa-gavel"></i> Battle Blitz Rules & Regulations</h1>
+                <p>Read carefully and follow all rules to ensure fair play and exciting competition!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Container -->
+    <section class="rules-container">
+        <div class="container">
+            <div class="rules-card">
+                <h2><i class="fas fa-book"></i> Official Tournament Rules</h2>
+                
+                <div class="important-note">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important</h3>
+                    <p>All participants must read and agree to follow these rules. Violation may result in disqualification.</p>
+                </div>
+
+                <!-- Rules List -->
+                <div class="rule-item" data-number="1">
+                    It is a 4(+2) player team tournament. A 4 man-starter roster and up to 2 substitute.
+                </div>
+
+                <div class="rule-item" data-number="2">
+                    Finals will be LAN and all the other qualifying round will be online.
+                </div>
+
+                <div class="rule-item" data-number="3">
+                    All the matches will be Battle Royal.
+                </div>
+
+                <div class="rule-item" data-number="4">
+                    All the matches will take place in Esports Mode.
+                </div>
+
+                <div class="rule-item" data-number="5">
+                    Character skills are allowed.
+                </div>
+
+                <div class="rule-item" data-number="6">
+                    Gun attributes are not allowed.
+                </div>
+
+                <div class="rule-item" data-number="7">
+                    Emulators / Tablets are not allowed in any game mode organized. The player will be disqualified if found using any kind of emulator.
+                </div>
+
+                <div class="rule-item" data-number="8">
+                    Any game modifying tools except 'GFX tool' is not allowed.
+                </div>
+
+                <div class="rule-item" data-number="9">
+                    Players can play on android/ios phones only.
+                </div>
+
+                <div class="rule-item" data-number="10">
+                    Only in-game voice chat should be used after the game is started till its completion.
+                </div>
+
+                <div class="rule-item" data-number="11">
+                    Using hack or script of any kind is not allowed.
+                </div>
+
+                <div class="rule-item" data-number="12">
+                    Any use of unfair means such as aimbot, trigger bot, ESP will be disqualified.
+                </div>
+
+                <div class="rule-item" data-number="13">
+                    Should a team/player fail to join the room in time, their squad/they will be given 0 points for it.
+                </div>
+
+                <div class="rule-item" data-number="14">
+                    The exploitation of bugs that hinders fair play will result in disqualification.
+                </div>
+
+                <div class="rule-item" data-number="15">
+                    Organizers would not be held responsible for connectivity issues on the participant's side.
+                </div>
+
+                <div class="rule-item" data-number="16">
+                    The entry fee would not be refunded under any circumstances.
+                </div>
+
+                <div class="rule-item" data-number="17">
+                    Participants are requested to remain ready at least 15 minutes prior to the start of any match. Late entries would not be allowed.
+                </div>
+
+                <div class="rule-item" data-number="18">
+                    Ties between two Teams during Scrims and Tournament points will be determined in the order of: (a) total times of winning the first placement across all the matches; (b) total accumulated placement points across all matches in the applicable matches and Tournament; (c) total accumulated finishes across all matches in the applicable Scrims and Tournament.
+                </div>
+
+                <div class="rule-item" data-number="19">
+                    Team-up is not allowed.
+                </div>
+
+                <div class="rule-item" data-number="20">
+                    Any use of Glitch/Bugs known/Unknown is not allowed.
+                </div>
+
+                <div class="rule-item" data-number="21">
+                    Sit according to the slot List, if we found you sitting in any other team's slot then you'll be kicked out of the room.
+                </div>
+
+                <div class="rule-item" data-number="22">
+                    If you doubt someone is hacking/cheating record your POV and send it to management.
+                </div>
+
+                <div class="rule-item" data-number="23">
+                    Take the screenshot of your results, it maybe asked anytime.
+                </div>
+
+                <div class="rule-item" data-number="24">
+                    Management's decision will be final regarding the time, rule, or any other objection.
+                </div>
+
+                <div class="rule-item" data-number="25">
+                    Inviting random players in room will lead to dropping or cancelling the group match.
+                </div>
+
+                <div class="rule-item" data-number="26">
+                    Don't Use an Emergency Pickup Kit Otherwise Your Points Will Not Get Count.
+                </div>
+
+                <div class="rule-item" data-number="27">
+                    Take squad entry in rooms or you'll be responsible for misteaming of your players.
+                </div>
+
+                <div class="rule-item" data-number="28">
+                    If any teams complaints against you and you failed to provide pov then you will get warning n 2 warnings will lead to disqualification.
+                </div>
+
+                <div class="rule-item" data-number="29">
+                    Only 30+ id level is allowed otherwise record pov showing background app.
+                </div>
+
+                <div class="rule-item" data-number="30">
+                    No allegation will be entertained without your pov + deathcam.
+                </div>
+
+                <div class="rule-item" data-number="31">
+                    All 4 players have to record their pov with mic on. start your game and recording from apple store/play store.
+                </div>
+
+                <div class="rule-item" data-number="32">
+                    If you are sitting on someone else slot and got a kick and then you are not able to join, in that case there is no rematch option. If someone is sitting on your slot, don't sit on any other slot. just wait on and contact management.
+                </div>
+
+                <div class="important-note" style="margin-top: 50px;">
+                    <h3><i class="fas fa-shield-alt"></i> Fair Play Commitment</h3>
+                    <p>We are committed to maintaining a fair and competitive environment. All rules will be strictly enforced.</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="BattleBlitzz.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Battle Blitz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as main page) -->
+    <footer class="w3l-footer-29-main">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 footer-list-29">
+                    <h6 class="footer-title-29">E-GENESIS</h6>
+                    <p>The ultimate gaming and esports festival bringing together the best gamers and tech enthusiasts.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 footer-list-29">
+                    <h6 class="footer-title-29">Quick Links</h6>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-0 mt-5 footer-list-29">
+                    <h6 class="footer-title-29">Follow Us</h6>
+                    <div class="main-social-footer-29">
+                        <a href="https://www.facebook.com/official.kitcoek/" class="facebook"><span class="fa fa-facebook-square"></span></a>
+                        <a href="https://www.instagram.com/kitcoek.pioneer/" class="instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="https://www.youtube.com/channel/UCjC8I3J_s3eRJJiTHTQXasA" class="youtube"><span class="fa fa-youtube"></span></a>
+                        <a href="https://www.linkedin.com/company/pioneer-kitcoek/" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy-footer-29">
+                <p>© 2025 E-GENESIS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scroll animations -->
+    <script>
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('nav-fixed');
+            } else {
+                header.classList.remove('nav-fixed');
+            }
+        });
+    </script>
+
+</body>
+</html>
